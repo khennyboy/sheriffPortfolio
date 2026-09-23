@@ -12,10 +12,18 @@ import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram } from "react-icons/fa6";
 import { useColorMode } from "./ui/color-mode";
 
 const socials = [
-  { IconComponent: FaGithub, href: "https://github.com/", label: "GitHub" },
-  { IconComponent: FaLinkedin, href: "https://linkedin.com/", label: "LinkedIn" },
-  { IconComponent: FaXTwitter, href: "https://x.com/", label: "X" },
-  { IconComponent: FaInstagram, href: "https://instagram.com/", label: "Instagram" },
+  {
+    IconComponent: FaGithub,
+    href: "https://github.com/khennyboy",
+    label: "GitHub",
+  },
+  {
+    IconComponent: FaLinkedin,
+    href: "https://www.linkedin.com/in/sheriff-kehinde",
+    label: "LinkedIn",
+  },
+  { IconComponent: FaXTwitter, href: "https://x.com/abidemi2434", label: "X" },
+  // { IconComponent: FaInstagram, href: "https://instagram.com/", label: "Instagram" },
 ];
 
 export default function Navbar() {
@@ -45,8 +53,8 @@ export default function Navbar() {
             </Text>
           </Link>
 
-          <HStack spacing={{ base: 2, md: 4 }}>
-            <HStack spacing={3} display={{ base: "none", sm: "flex" }}>
+          <HStack gap={{ base: 4, md: 6 }}>
+            <HStack gap={4} display={{ base: "none", sm: "flex" }}>
               {socials.map(({ IconComponent, href, label }) => (
                 <IconButton
                   key={label}

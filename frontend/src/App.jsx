@@ -8,7 +8,7 @@ import Footer from "./components/Footer.jsx";
 
 export default function App() {
   return (
-    <Box minH="100vh">
+    <Box>
       <Navbar />
       <Hero />
       <Skills />
