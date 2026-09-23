@@ -6,15 +6,20 @@ import {
   Text,
   Button,
   HStack,
-  useColorMode,
 } from "@chakra-ui/react";
 import { FiDownload, FiMessageSquare } from "react-icons/fi";
+import { useColorMode } from "./ui/color-mode";
 
 export default function Hero() {
   const { colorMode } = useColorMode();
 
   return (
-    <Box as="section" id="top" pt={{ base: 20, md: 28 }} pb={{ base: 16, md: 24 }}>
+    <Box
+      as="section"
+      id="top"
+      pt={{ base: 20, md: 28 }}
+      pb={{ base: 16, md: 24 }}
+    >
       <Container maxW="6xl">
         <Flex
           direction={{ base: "column-reverse", md: "row" }}
@@ -59,19 +64,17 @@ export default function Hero() {
                 as="a"
                 href="/resume.pdf"
                 download
-                rightIcon={<FiDownload />}
                 size="lg"
               >
-                Resume
+                Resume <FiDownload />
               </Button>
               <Button
                 as="a"
                 href="#contact"
                 variant="outline"
-                rightIcon={<FiMessageSquare />}
                 size="lg"
               >
-                Contact me
+                Contact me <FiMessageSquare />
               </Button>
             </HStack>
           </Box>
@@ -89,9 +92,11 @@ export default function Hero() {
                 h="100%"
                 borderRadius="full"
                 overflow="hidden"
-                bg={colorMode === "dark" ? "surface.darkCard" : "surface.lightAlt"}
+                bg={
+                  colorMode === "dark" ? "surface.darkCard" : "surface.lightAlt"
+                }
               >
-                {/* Replace with your own photo at src/assets/profile.jpg */}
+                {/* Profile photo */}
                 <Box
                   as="img"
                   src="/profile.jpg"

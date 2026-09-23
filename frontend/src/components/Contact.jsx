@@ -6,9 +6,9 @@ import {
   Button,
   Flex,
   Icon,
-  useColorMode,
 } from "@chakra-ui/react";
 import { FiMessageSquare, FiMail } from "react-icons/fi";
+import { useColorMode } from "./ui/color-mode";
 
 const EMAIL = "abdullateefkehinde848@gmail.com";
 
@@ -18,7 +18,13 @@ export default function Contact() {
   return (
     <Box as="section" id="contact" py={{ base: 16, md: 24 }}>
       <Container maxW="3xl" textAlign="center">
-        <Text color="brand.400" fontWeight={700} fontSize="sm" letterSpacing="0.08em" mb={2}>
+        <Text
+          color="brand.400"
+          fontWeight={700}
+          fontSize="sm"
+          letterSpacing="0.08em"
+          mb={2}
+        >
           Get in touch
         </Text>
         <Heading as="h2" fontSize={{ base: "3xl", md: "4xl" }} mb={4}>

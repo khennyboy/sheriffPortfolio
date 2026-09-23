@@ -1,5 +1,6 @@
-import { Box, Container, Flex, Text, HStack, IconButton, useColorMode } from "@chakra-ui/react";
+import { Box, Container, Flex, Text, HStack, IconButton } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram } from "react-icons/fa6";
+import { useColorMode } from "./ui/color-mode";
 
 const socials = [
   { icon: FaGithub, href: "https://github.com/", label: "GitHub" },

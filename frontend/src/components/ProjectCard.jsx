@@ -8,9 +8,9 @@ import {
   Tag,
   Button,
   Flex,
-  useColorMode,
 } from "@chakra-ui/react";
-import { FiGithub, FiExternalLink } from "react-icons/fi";
+import { useColorMode } from "./ui/color-mode";
+import { FiExternalLink, FiGithub } from "react-icons/fi";
 
 export default function ProjectCard({ project }) {
   const { colorMode } = useColorMode();
@@ -19,8 +19,8 @@ export default function ProjectCard({ project }) {
 
   return (
     <Box
-      display={"flex"}
-      flexDirection={"column"}
+      display="flex"
+      flexDirection="column"
       bg={cardBg}
       border="1px solid"
       borderColor={border}
@@ -34,7 +34,7 @@ export default function ProjectCard({ project }) {
     >
       <Box h="160px" bgGradient={project.gradient} position="relative">
         {project.featured && (
-          <Tag
+          <Tag.Root
             position="absolute"
             top={3}
             left={3}
@@ -43,8 +43,8 @@ export default function ProjectCard({ project }) {
             fontWeight={600}
             fontSize="xs"
           >
-            Latest build
-          </Tag>
+            <Tag.Label>Latest build</Tag.Label>
+          </Tag.Root>
         )}
         <Flex h="100%" align="flex-end" p={5}>
           <Heading as="h3" fontSize="xl" color="white">
@@ -53,7 +53,7 @@ export default function ProjectCard({ project }) {
         </Flex>
       </Box>
 
-      <Box p={5} flex={1} display={"flex"} flexDirection={"column"} gap={2}>
+      <Box p={5} flex={1} display="flex" flexDirection="column" gap={2}>
         <Text fontSize="sm" fontWeight={600} color="brand.400">
           {project.tagline}
         </Text>
@@ -65,31 +65,31 @@ export default function ProjectCard({ project }) {
         </Text>
 
         <Wrap spacing={2}>
-          {project.stack.map((s) => (
+          {project.stack?.map((s) => (
             <WrapItem key={s}>
-              <Tag
+              <Tag.Root
                 size="sm"
                 borderRadius="full"
                 variant="subtle"
                 bg={colorMode === "dark" ? "whiteAlpha.100" : "blackAlpha.100"}
               >
-                {s}
-              </Tag>
+                <Tag.Label>{s}</Tag.Label>
+              </Tag.Root>
             </WrapItem>
           ))}
         </Wrap>
 
-        <HStack spacing={3} flex={1} placeItems={"flex-end"}>
+        <HStack spacing={3} flex={1} alignItems="flex-end" mt={2}>
           <Button
             as="a"
             href={project.codeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            leftIcon={<FiGithub />}
             variant="outline"
             size="sm"
             flex={1}
           >
+            <FiGithub />
             Code
           </Button>
           <Button
@@ -97,10 +97,10 @@ export default function ProjectCard({ project }) {
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            leftIcon={<FiExternalLink />}
             size="sm"
             flex={1}
           >
+            <FiExternalLink />
             Live
           </Button>
         </HStack>

@@ -4,18 +4,18 @@ import {
   HStack,
   Text,
   IconButton,
-  useColorMode,
   Link,
   Container,
 } from "@chakra-ui/react";
 import { FiSun, FiMoon } from "react-icons/fi";
 import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram } from "react-icons/fa6";
+import { useColorMode } from "./ui/color-mode";
 
 const socials = [
-  { icon: FaGithub, href: "https://github.com/", label: "GitHub" },
-  { icon: FaLinkedin, href: "https://linkedin.com/", label: "LinkedIn" },
-  { icon: FaXTwitter, href: "https://x.com/", label: "X" },
-  { icon: FaInstagram, href: "https://instagram.com/", label: "Instagram" },
+  { IconComponent: FaGithub, href: "https://github.com/", label: "GitHub" },
+  { IconComponent: FaLinkedin, href: "https://linkedin.com/", label: "LinkedIn" },
+  { IconComponent: FaXTwitter, href: "https://x.com/", label: "X" },
+  { IconComponent: FaInstagram, href: "https://instagram.com/", label: "Instagram" },
 ];
 
 export default function Navbar() {
@@ -27,7 +27,9 @@ export default function Navbar() {
       position="sticky"
       top={0}
       zIndex={20}
-      bg={colorMode === "dark" ? "rgba(10,15,30,0.75)" : "rgba(255,255,255,0.8)"}
+      bg={
+        colorMode === "dark" ? "rgba(10,15,30,0.75)" : "rgba(255,255,255,0.8)"
+      }
       backdropFilter="blur(10px)"
       borderBottom="1px solid"
       borderColor={colorMode === "dark" ? "whiteAlpha.100" : "blackAlpha.100"}
@@ -36,37 +38,42 @@ export default function Navbar() {
         <Flex align="center" justify="space-between">
           <Link href="#top" _hover={{ textDecoration: "none" }}>
             <Text fontFamily="heading" fontWeight={700} fontSize="xl">
-              Sheriff<Text as="span" color="brand.400">.</Text>
+              Sheriff
+              <Text as="span" color="brand.400">
+                .
+              </Text>
             </Text>
           </Link>
 
           <HStack spacing={{ base: 2, md: 4 }}>
             <HStack spacing={3} display={{ base: "none", sm: "flex" }}>
-              {socials.map((s) => (
+              {socials.map(({ IconComponent, href, label }) => (
                 <IconButton
-                  key={s.label}
+                  key={label}
                   as="a"
-                  href={s.href}
+                  href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={s.label}
-                  icon={<s.icon />}
+                  aria-label={label}
                   variant="ghost"
                   size="sm"
                   fontSize="18px"
                   color={colorMode === "dark" ? "whiteAlpha.700" : "gray.600"}
                   _hover={{ color: "brand.400", bg: "transparent" }}
-                />
+                >
+                  <IconComponent />
+                </IconButton>
               ))}
             </HStack>
             <IconButton
               aria-label="Toggle color mode"
-              icon={colorMode === "dark" ? <FiSun /> : <FiMoon />}
               onClick={toggleColorMode}
               variant="outline"
               size="sm"
               borderRadius="full"
-            />
+            >
+              {colorMode === "dark" ? <FiSun /> : <FiMoon />}
+            </IconButton>
           </HStack>
         </Flex>
       </Container>
