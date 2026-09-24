@@ -14,20 +14,19 @@ export default function Hero() {
   const { colorMode } = useColorMode();
 
   return (
-    <Box
-      as="section"
-      id="top"
-      pt={{ base: 20, md: 28 }}
-      pb={{ base: 16, md: 24 }}
-    >
-      <Container maxW="6xl">
+    <Box as="section" id="top">
+      <Container maxW="6xl" minH="dvh" display="flex">
         <Flex
+          flex={1}
           direction={{ base: "column-reverse", md: "row" }}
-          align="center"
-          justify="space-between"
-          gap={{ base: 10, md: 8 }}
+          alignItems="center"
+          justifyContent={{ base: "center", md: "space-between" }}
+          gap={{ base: 4, md: 8 }}
         >
-          <Box flex="1.1" textAlign={{ base: "center", md: "left" }}>
+          <Box
+            flex={{ base: "initial", md: "1.1" }}
+            textAlign={{ base: "center", md: "left" }}
+          >
             <Text
               color="brand.400"
               fontWeight={700}
@@ -39,9 +38,9 @@ export default function Hero() {
             </Text>
             <Heading
               as="h1"
-              fontSize={{ base: "4xl", md: "5xl", lg: "6xl" }}
+              fontSize={{ base: "3xl", md: "4xl" }}
               lineHeight={1.1}
-              mb={5}
+              mb={3}
             >
               Hi, I'm{" "}
               <Text as="span" color="brand.400">
@@ -51,29 +50,24 @@ export default function Hero() {
             <Text
               fontSize={{ base: "md", md: "lg" }}
               color={colorMode === "dark" ? "whiteAlpha.700" : "gray.600"}
-              maxW="520px"
+              maxW="500px"
               mx={{ base: "auto", md: 0 }}
               mb={8}
             >
               Frontend Engineer specializing in React, Next.js, and TypeScript.
               I build clean, high-performance interfaces and ship them
-              end-to-end — from component to production.
+              end-to-end from component to production.
             </Text>
             <HStack spacing={4} justify={{ base: "center", md: "flex-start" }}>
               <Button
                 as="a"
-                href="/resume.pdf"
-                download
+                href="/Sheriff_Abdullateef_Resume.pdf"
+                target="_blank"
                 size="lg"
               >
                 Resume <FiDownload />
               </Button>
-              <Button
-                as="a"
-                href="#contact"
-                variant="outline"
-                size="lg"
-              >
+              <Button as="a" href="#contact" variant="outline" size="lg">
                 Contact me <FiMessageSquare />
               </Button>
             </HStack>
@@ -84,31 +78,19 @@ export default function Hero() {
               w={{ base: "220px", md: "300px" }}
               h={{ base: "220px", md: "300px" }}
               borderRadius="full"
-              bgGradient="linear(to-br, brand.400, brand.700)"
-              p="4px"
+              overflow={"hidden"}
             >
               <Box
+                as="img"
+                src="https://res.cloudinary.com/dfnjiuou/image/upload/f_auto,q_auto/v1790206354/my_dp.png"
+                alt="Sheriff Abdullateef"
                 w="100%"
                 h="100%"
-                borderRadius="full"
-                overflow="hidden"
-                bg={
-                  colorMode === "dark" ? "surface.darkCard" : "surface.lightAlt"
-                }
-              >
-                {/* Profile photo */}
-                <Box
-                  as="img"
-                  src="/profile.jpg"
-                  alt="Sheriff Abdullateef"
-                  w="100%"
-                  h="100%"
-                  objectFit="cover"
-                  onError={(e) => {
-                    e.currentTarget.style.display = "none";
-                  }}
-                />
-              </Box>
+                objectFit="cover"
+                onError={(e) => {
+                  e.currentTarget.style.display = "none";
+                }}
+              />
             </Box>
           </Box>
         </Flex>

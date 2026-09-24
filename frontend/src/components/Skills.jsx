@@ -33,7 +33,7 @@ export default function Skills() {
 
         <SimpleGrid
           columns={{ base: 2, sm: 3, md: 4, lg: 6 }}
-          spacing={{ base: 4, md: 5 }}
+          gap={{ base: 4, md: 5 }}
         >
           {skills.map((s) => (
             <Flex

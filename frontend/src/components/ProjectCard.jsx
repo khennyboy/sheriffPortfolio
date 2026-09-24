@@ -8,6 +8,7 @@ import {
   Tag,
   Button,
   Flex,
+  Image,
 } from "@chakra-ui/react";
 import { useColorMode } from "./ui/color-mode";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
@@ -19,6 +20,8 @@ export default function ProjectCard({ project }) {
 
   return (
     <Box
+      maxW={"450px"}
+      mx={"auto"}
       display="flex"
       flexDirection="column"
       bg={cardBg}
@@ -32,31 +35,21 @@ export default function ProjectCard({ project }) {
         boxShadow: "0 16px 40px rgba(0,0,0,0.25)",
       }}
     >
-      <Box h="160px" bgGradient={project.gradient} position="relative">
-        {project.featured && (
-          <Tag.Root
-            position="absolute"
-            top={3}
-            left={3}
-            bg="brand.500"
-            color="white"
-            fontWeight={600}
-            fontSize="xs"
-          >
-            <Tag.Label>Latest build</Tag.Label>
-          </Tag.Root>
-        )}
-        <Flex h="100%" align="flex-end" p={5}>
-          <Heading as="h3" fontSize="xl" color="white">
-            {project.title}
-          </Heading>
-        </Flex>
+      <Box h="220px" position="relative" overflow="hidden">
+        <Image
+          src={project.imageUrl}
+          alt={project.title}
+          w="100%"
+          h="100%"
+          objectFit="cover"
+          objectPosition={"top"}
+        />
       </Box>
 
       <Box p={5} flex={1} display="flex" flexDirection="column" gap={2}>
-        <Text fontSize="sm" fontWeight={600} color="brand.400">
-          {project.tagline}
-        </Text>
+        <Heading as="h3" fontSize="lg">
+          {project.title}
+        </Heading>
         <Text
           fontSize="sm"
           color={colorMode === "dark" ? "whiteAlpha.700" : "gray.600"}
@@ -64,7 +57,7 @@ export default function ProjectCard({ project }) {
           {project.description}
         </Text>
 
-        <Wrap spacing={2}>
+        <Wrap gap={2}>
           {project.stack?.map((s) => (
             <WrapItem key={s}>
               <Tag.Root
@@ -79,7 +72,7 @@ export default function ProjectCard({ project }) {
           ))}
         </Wrap>
 
-        <HStack spacing={3} flex={1} alignItems="flex-end" mt={2}>
+        <HStack gap={3} flex={1} alignItems="flex-end" mt={2}>
           <Button
             as="a"
             href={project.codeUrl}

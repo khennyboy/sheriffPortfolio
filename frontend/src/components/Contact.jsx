@@ -17,7 +17,7 @@ export default function Contact() {
 
   return (
     <Box as="section" id="contact" py={{ base: 16, md: 24 }}>
-      <Container maxW="3xl" textAlign="center">
+      <Container maxW="6xl" textAlign="center">
         <Text
           color="brand.400"
           fontWeight={700}

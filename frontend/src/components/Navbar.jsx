@@ -23,7 +23,6 @@ const socials = [
     label: "LinkedIn",
   },
   { IconComponent: FaXTwitter, href: "https://x.com/abidemi2434", label: "X" },
-  // { IconComponent: FaInstagram, href: "https://instagram.com/", label: "Instagram" },
 ];
 
 export default function Navbar() {
@@ -32,12 +31,14 @@ export default function Navbar() {
   return (
     <Box
       as="nav"
-      position="sticky"
+      position="fixed"
       top={0}
+      insetX={0}
       zIndex={20}
       bg={
         colorMode === "dark" ? "rgba(10,15,30,0.75)" : "rgba(255,255,255,0.8)"
       }
+      shadow={"xs"}
       backdropFilter="blur(10px)"
       borderBottom="1px solid"
       borderColor={colorMode === "dark" ? "whiteAlpha.100" : "blackAlpha.100"}

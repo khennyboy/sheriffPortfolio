@@ -16,7 +16,7 @@ const projectSchema = new mongoose.Schema(
       default: [],
     },
     imageUrl: {
-      type: String, 
+      type: String,
       default: "",
     },
     liveUrl: {
@@ -27,16 +27,12 @@ const projectSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    featured: {
-      type: Boolean,
-      default: false, 
-    },
     order: {
       type: Number,
       default: 0, // lower numbers show first; lets you reorder without renaming
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 const Project = mongoose.model("Project", projectSchema);

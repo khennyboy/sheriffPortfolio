@@ -10,18 +10,3 @@ export const getProjects = async (req, res) => {
   }
 };
 
-// PUT /api/projects/:id  (protected)
-export const updateProject = async (req, res) => {
-  try {
-    const project = await Project.findByIdAndUpdate(req.params.id, req.body, {
-      new: true, // return the updated doc, not the old one
-      runValidators: true,
-    });
-    if (!project) {
-      return res.status(404).json({ error: "Project not found" });
-    }
-    res.json(project);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-};
