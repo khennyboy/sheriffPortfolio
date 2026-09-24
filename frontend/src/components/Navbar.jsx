@@ -31,10 +31,9 @@ export default function Navbar() {
   return (
     <Box
       as="nav"
-      position="fixed"
+      position="sticky"
       top={0}
-      insetX={0}
-      zIndex={20}
+      zIndex={200}
       bg={
         colorMode === "dark" ? "rgba(10,15,30,0.75)" : "rgba(255,255,255,0.8)"
       }

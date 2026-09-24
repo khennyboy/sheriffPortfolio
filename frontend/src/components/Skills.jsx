@@ -46,8 +46,8 @@ export default function Skills() {
               border="1px solid"
               borderColor={border}
               borderRadius="xl"
-              py={6}
-              px={3}
+              py={5}
+              px={2}
               transition="transform 0.15s ease, border-color 0.15s ease"
               _hover={{
                 transform: "translateY(-3px)",

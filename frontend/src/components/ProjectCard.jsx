@@ -46,7 +46,7 @@ export default function ProjectCard({ project }) {
         />
       </Box>
 
-      <Box p={5} flex={1} display="flex" flexDirection="column" gap={2}>
+      <Box p={5} flex={1} display="flex" flexDirection="column" gap={3}>
         <Heading as="h3" fontSize="lg">
           {project.title}
         </Heading>
