@@ -26,10 +26,10 @@ app.use("/api/projects", projectRoutes);
 app.use("/api/contact", contactRoutes);
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "frontend/dist")));
+  app.use(express.static(path.join(__dirname, "..", "frontend/dist")));
 
   app.get("/*splat", (_, res) => {
-    res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+    res.sendFile(path.join(__dirname, "..", "frontend", "dist", "index.html"));
   });
 }
 
