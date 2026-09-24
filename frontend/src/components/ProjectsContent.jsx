@@ -1,7 +1,7 @@
 import { SimpleGrid } from "@chakra-ui/react";
 import ProjectCard from "./ProjectCard";
 import useGetProjects from "../services/getProject";
-import projects from "../data/projects";
+
 
 const ProjectsContent = () => {
   const data = useGetProjects();
