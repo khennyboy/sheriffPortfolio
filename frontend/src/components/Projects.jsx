@@ -2,7 +2,7 @@ import { Box, Container, Heading, Text } from "@chakra-ui/react";
 import { Suspense } from "react";
 import ProjectsSuspense from "./ProjectsContent.jsx";
 import { ErrorBoundary } from "react-error-boundary";
-import ErrorFallback from "./Errorfallback.jsx";
+import ErrorFallback from "./ErrorsFallback.jsx";
 
 export default function Projects() {
   return (

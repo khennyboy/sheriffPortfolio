@@ -1,0 +1,1 @@
+mongodb+srv://abdullateefkehinde848_db_user:XraUraJBtsCf3qCD@cluster0.0rm8zlm.mongodb.net/sheriff-portfolio?retryWrites=true&w=majority&appName=Cluster0

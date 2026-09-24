@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Provider } from "./components/ui/provider.jsx";
 import { ErrorBoundary } from "react-error-boundary";
 import "./index.css";
-import ErrorFallback from "./components/Errorfallback.jsx";
+import ErrorFallback from "./components/ErrorsFallback.jsx";
 
 const queryClient = new QueryClient({
   defaultOptions: {
