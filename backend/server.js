@@ -1,12 +1,12 @@
 import "./config/env.js";
 
-import express from "express";
-import path, { dirname } from "path";
 import cors from "cors";
+import express from "express";
+import { dirname } from "path";
 import { fileURLToPath } from "url";
-import projectRoutes from "./routes/project.route.js";
-import contactRoutes from "./routes/contact.route.js";
 import { connectDB } from "./config/db.js";
+import messageRoutes from "./routes/message.route.js";
+import projectRoutes from "./routes/project.route.js";
 
 const app = express();
 
@@ -23,15 +23,8 @@ app.use(
 
 app.use(express.json());
 app.use("/api/projects", projectRoutes);
-app.use("/api/contact", contactRoutes);
+app.use("/api/message", messageRoutes);
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "..", "frontend/dist")));
-
-  app.get("/*splat", (_, res) => {
-    res.sendFile(path.join(__dirname, "..", "frontend", "dist", "index.html"));
-  });
-}
 
 const startServer = async () => {
   try {
