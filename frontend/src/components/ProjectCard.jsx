@@ -20,6 +20,7 @@ export default function ProjectCard({ project }) {
 
   return (
     <Box
+      w={"full"}
       maxW={"450px"}
       mx={"auto"}
       display="flex"
@@ -29,6 +30,7 @@ export default function ProjectCard({ project }) {
       borderColor={border}
       borderRadius="2xl"
       overflow="hidden"
+      shadow={'sm'}
       transition="transform 0.18s ease, box-shadow 0.18s ease"
       _hover={{
         transform: "translateY(-4px)",
