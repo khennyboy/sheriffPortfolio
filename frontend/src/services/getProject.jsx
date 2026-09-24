@@ -6,5 +6,5 @@ export default function useGetProjects() {
     queryKey: ["projects"],
     queryFn: () => api.get("/api/projects").then((res) => res.data),
   });
-  return data;
+  return {data};
 }

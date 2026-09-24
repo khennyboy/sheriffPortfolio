@@ -1,8 +1,9 @@
 import { Box, Container, Heading, Text } from "@chakra-ui/react";
 import { Suspense } from "react";
-import ProjectsSuspense from "./ProjectsContent.jsx";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "./ErrorsFallback.jsx";
+import ProjectsContent from "./ProjectsContent.jsx";
+import FallbackSkeleton from "./FallbackSkeleton.jsx";
 
 export default function Projects() {
   return (
@@ -21,8 +22,8 @@ export default function Projects() {
           Projects
         </Heading>
         <ErrorBoundary FallbackComponent={ErrorFallback}>
-          <Suspense fallback={<Text>Loading projects…</Text>}>
-            <ProjectsSuspense />
+          <Suspense fallback={<FallbackSkeleton />}>
+            <ProjectsContent />
           </Suspense>
         </ErrorBoundary>
       </Container>

@@ -1,38 +1,42 @@
-import {
-  Box,
-  Card,
-  Skeleton,
-  SkeletonText,
-  SimpleGrid,
-  HStack,
-  Stack,
-} from "@chakra-ui/react";
+import { Box, Skeleton, SkeletonText, HStack, Stack } from "@chakra-ui/react";
+import { useColorMode } from "./ui/color-mode";
 
 export function ProjectCardSkeleton() {
+  const { colorMode } = useColorMode();
+  const cardBg = colorMode === "dark" ? "surface.darkCard" : "white";
+  const border = colorMode === "dark" ? "whiteAlpha.100" : "blackAlpha.100";
+
   return (
-    <Card.Root variant="outline" borderRadius="xl" overflow="hidden">
-      <Card.Body p={4}>
-        <Skeleton height="176px" borderRadius="lg" mb={4} />
+    <Box
+      w="full"
+      maxW="450px"
+      mx="auto"
+      display="flex"
+      flexDirection="column"
+      bg={cardBg}
+      border="1px solid"
+      borderColor={border}
+      borderRadius="2xl"
+      overflow="hidden"
+    >
+      <Skeleton height="220px" borderRadius={0} />
 
-        <Stack gap={3}>
-          <Skeleton height="20px" width="40%" borderRadius="md" />
+      <Box p={5} flex={1} display="flex" flexDirection="column" gap={3}>
+        <Skeleton height="22px" width="60%" borderRadius="md" />
 
-          <SkeletonText noOfLines={3} gap="2" skeletonHeight="14px" />
+        <SkeletonText noOfLines={2} gap="2" skeletonHeight="14px" />
 
-          <HStack gap={2} pt={2}>
-            <Skeleton height="24px" width="60px" borderRadius="full" />
-            <Skeleton height="24px" width="80px" borderRadius="full" />
-            <Skeleton height="24px" width="70px" borderRadius="full" />
-          </HStack>
-        </Stack>
-      </Card.Body>
+        <HStack gap={2} mt={1}>
+          <Skeleton height="24px" width="60px" borderRadius="full" />
+          <Skeleton height="24px" width="80px" borderRadius="full" />
+          <Skeleton height="24px" width="70px" borderRadius="full" />
+        </HStack>
 
-      <Card.Footer p={4} pt={0}>
-        <SimpleGrid columns={2} gap={3} width="100%">
-          <Skeleton height="40px" borderRadius="md" />
-          <Skeleton height="40px" borderRadius="md" />
-        </SimpleGrid>
-      </Card.Footer>
-    </Card.Root>
+        <HStack gap={3} flex={1} alignItems="flex-end" mt={2}>
+          <Skeleton height="36px" flex={1} borderRadius="md" />
+          <Skeleton height="36px" flex={1} borderRadius="md" />
+        </HStack>
+      </Box>
+    </Box>
   );
 }

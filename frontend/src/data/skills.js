@@ -1,3 +1,5 @@
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+
 import {
   SiHtml5,
   SiCss as SiCss3,
@@ -30,3 +32,18 @@ const skills = [
 ];
 
 export default skills;
+
+
+export const socials = [
+  {
+    IconComponent: FaGithub,
+    href: "https://github.com/khennyboy",
+    label: "GitHub",
+  },
+  {
+    IconComponent: FaLinkedin,
+    href: "https://www.linkedin.com/in/sheriff-kehinde",
+    label: "LinkedIn",
+  },
+  { IconComponent: FaXTwitter, href: "https://x.com/abidemi2434", label: "X" },
+];

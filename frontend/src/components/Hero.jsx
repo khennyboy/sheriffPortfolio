@@ -17,6 +17,7 @@ export default function Hero() {
     <Box as="section" id="top">
       <Container maxW="6xl" minH="dvh" display="flex">
         <Flex
+          pt={{ base: 4, md: 0 }}
           flex={1}
           direction={{ base: "column-reverse", md: "row" }}
           alignItems="center"
@@ -24,7 +25,7 @@ export default function Hero() {
           gap={{ base: 4, md: 8 }}
         >
           <Box
-            flex={{ base: "initial", md: "1.1" }}
+            flex={{ base: "initial", md: "1" }}
             textAlign={{ base: "center", md: "left" }}
           >
             <Text
@@ -32,7 +33,7 @@ export default function Hero() {
               fontWeight={700}
               fontSize="sm"
               letterSpacing="0.08em"
-              mb={3}
+              mb={2}
             >
               Frontend Engineer
             </Text>

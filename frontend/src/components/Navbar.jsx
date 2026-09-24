@@ -8,22 +8,8 @@ import {
   Container,
 } from "@chakra-ui/react";
 import { FiSun, FiMoon } from "react-icons/fi";
-import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram } from "react-icons/fa6";
 import { useColorMode } from "./ui/color-mode";
-
-const socials = [
-  {
-    IconComponent: FaGithub,
-    href: "https://github.com/khennyboy",
-    label: "GitHub",
-  },
-  {
-    IconComponent: FaLinkedin,
-    href: "https://www.linkedin.com/in/sheriff-kehinde",
-    label: "LinkedIn",
-  },
-  { IconComponent: FaXTwitter, href: "https://x.com/abidemi2434", label: "X" },
-];
+import { socials } from "../data/skills";
 
 export default function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -31,9 +17,10 @@ export default function Navbar() {
   return (
     <Box
       as="nav"
-      position="sticky"
+      position="fixed"
       top={0}
-      zIndex={200}
+      insetX={0}
+      zIndex={20}
       bg={
         colorMode === "dark" ? "rgba(10,15,30,0.75)" : "rgba(255,255,255,0.8)"
       }

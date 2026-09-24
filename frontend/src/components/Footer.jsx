@@ -2,23 +2,16 @@ import {
   Box,
   Container,
   Flex,
-  Text,
   HStack,
-  VStack,
   IconButton,
   Link,
   Separator,
+  Text,
+  VStack,
 } from "@chakra-ui/react";
-import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram } from "react-icons/fa6";
 import { FiArrowUp } from "react-icons/fi";
+import { socials } from "../data/skills";
 import { useColorMode } from "./ui/color-mode";
-
-const socials = [
-  { icon: FaGithub, href: "https://github.com/", label: "GitHub" },
-  { icon: FaLinkedin, href: "https://linkedin.com/", label: "LinkedIn" },
-  { icon: FaXTwitter, href: "https://x.com/", label: "X" },
-  { icon: FaInstagram, href: "https://instagram.com/", label: "Instagram" },
-];
 
 const quickLinks = [
   { label: "Skills", href: "#skills" },
@@ -43,11 +36,11 @@ export default function Footer() {
       <Container maxW="6xl">
         <Flex
           direction={{ base: "column", md: "row" }}
-          justify="space-between"
-          gap={10}
+          justify={{ base: "center", md: "space-between" }}
+          align={{ base: "center", md: "start" }}
+          gap={6}
           mb={10}
         >
-          {/* Brand + blurb */}
           <VStack
             align={{ base: "center", md: "flex-start" }}
             gap={3}
@@ -60,7 +53,7 @@ export default function Footer() {
                 .
               </Text>
             </Text>
-            <Text fontSize="sm" color={muted}>
+            <Text fontSize="sm" color={muted} maxW={"300px"}>
               Frontend developer building fast, responsive interfaces with
               React, Next.js, and TypeScript.
             </Text>
@@ -79,7 +72,7 @@ export default function Footer() {
                   color={muted}
                   _hover={{ color: "brand.400", bg: "transparent" }}
                 >
-                  <s.icon />
+                  <s.IconComponent />
                 </IconButton>
               ))}
             </HStack>
@@ -114,11 +107,11 @@ export default function Footer() {
               color={muted}
               _hover={{ color: "brand.400" }}
             >
-              your@email.com
+              abdullateefkehinde848@email.com
             </Link>
             <Link
               href="/Sheriff_Abdullateef_Resume.pdf"
-              target="_blank"
+              download
               rel="noopener noreferrer"
               fontSize="sm"
               color={muted}
@@ -131,13 +124,7 @@ export default function Footer() {
 
         <Separator borderColor={isDark ? "whiteAlpha.100" : "blackAlpha.100"} />
 
-        <Flex
-          direction={{ base: "column", sm: "row" }}
-          align="center"
-          justify="space-between"
-          gap={3}
-          pt={6}
-        >
+        <Flex align="center" justify="space-around" gap={3} pt={6}>
           <Text fontSize="xs" color={faint} textAlign="center">
             © {new Date().getFullYear()} Sheriff Abdullateef. Built with React
             &amp; Chakra UI.
